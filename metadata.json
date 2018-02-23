@@ -1,0 +1,48 @@
+{
+  "name": "wwkimball-puppet_agent",
+  "version": "0.1.0",
+  "author": "William W. Kimball, Jr., MBA, MSIS",
+  "summary": "Manages the already-installed OSS Puppet Agent and its resources.",
+  "license": "Apache-2.0",
+  "source": "https://bitbucket.org/kimballstuff/wwkimball-puppet_agent",
+  "project_page": "https://bitbucket.org/kimballstuff/wwkimball-puppet_agent",
+  "issues_url": "https://bitbucket.org/kimballstuff/wwkimball-puppet_agent/issues/",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.7.0 < 6.0.0"
+    }
+  ],
+  "pdk-version": "1.3.2",
+  "template-url": "file://C:/PROGRA~1/PUPPET~1/DevelopmentKit/share/cache/pdk-templates.git",
+  "template-ref": "1.3.2-0-g07678c8"
+}
