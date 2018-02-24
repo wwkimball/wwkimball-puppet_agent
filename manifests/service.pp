@@ -4,7 +4,7 @@
 #
 # @example
 #
-class puppet_agent::config {
+class puppet_agent::service {
   # TBD
 }
 # vim: syntax=puppet:tabstop=2:softtabstop=2:shiftwidth=2:expandtab:ai

@@ -1,0 +1,23 @@
+---
+################################################################################
+# Parameter defaults for this Puppet module.
+################################################################################
+puppet_agent::deep_merge: &deep_merge
+  merge:
+    strategy: deep
+    knockout_prefix: --
+    merge_hash_arrays: true
+
+# Set default lookup behaviors within this data file
+lookup_options:
+  puppet_agent::cert_copies::resources:
+    <<: *deep_merge
+
+puppet_agent::cert_copies::manage_pki_base_dir: true
+puppet_agent::cert_copies::pki_base_dir: /etc/pki
+puppet_agent::cert_copies::pki_base_dir_attrs:
+  owner: root
+  group: root
+  mode: '0755'
+
+# vim: syntax=yaml:tabstop=2:softtabstop=2:shiftwidth=2:expandtab:ai
