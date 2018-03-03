@@ -2,17 +2,51 @@
 ################################################################################
 # Parameter defaults for this Puppet module.
 ################################################################################
+# Define reusable values
+aliases:
+  - &knockout_prefix --
+
 puppet_agent::deep_merge: &deep_merge
   merge:
     strategy: deep
-    knockout_prefix: --
+    knockout_prefix: *knockout_prefix
     merge_hash_arrays: true
 
 # Set default lookup behaviors within this data file
 lookup_options:
   puppet_agent::cert_copies::resources:
     <<: *deep_merge
+  puppet_agent::config_file_attributes:
+    <<: *deep_merge
+  puppet_agent::config_file_path_attributes:
+    <<: *deep_merge
+  puppet_agent::config:
+    <<: *deep_merge
 
+# Package defaults
+puppet_agent::package_ensure: present
+puppet_agent::package_name: puppet-agent
+
+# Configuration defaults
+puppet_agent::config_file_attributes:
+  owner: root
+  group: root
+  mode: '0644'
+puppet_agent::config_file_path: /etc/puppetlabs/puppet
+puppet_agent::config_file_path_attributes:
+  owner: root
+  group: root
+  mode: '0755'
+puppet_agent::config_hash_key_knockout_prefix: *knockout_prefix
+puppet_agent::purge_config_file_path: false
+
+# Service defaults
+puppet_agent::service_enable: true
+puppet_agent::service_ensure: running
+puppet_agent::service_managed: true
+puppet_agent::service_name: puppet
+
+# Certificate copy defaults
 puppet_agent::cert_copies::manage_pki_base_dir: true
 puppet_agent::cert_copies::pki_base_dir: /etc/pki
 puppet_agent::cert_copies::pki_base_dir_attrs:

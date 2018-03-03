@@ -14,7 +14,23 @@
 #  classes:
 #    - puppet_agent
 #
-class puppet_agent {
+class puppet_agent(
+  Hash[String[4], Any]           $config_file_attributes,
+  String[3]                      $config_file_path,
+  Hash[String[4], Any]           $config_file_path_attributes,
+  Pattern[/^-+$/]                $config_hash_key_knockout_prefix,
+  String                         $package_ensure,
+  String[2]                      $package_name,
+  Boolean                        $purge_config_file_path,
+  Boolean                        $service_enable,
+  Enum['running', 'stopped']     $service_ensure,
+  Boolean                        $service_managed,
+  String[2]                      $service_name,
+  Optional[Hash[
+    String[2],
+    Any
+  ]]                             $config                    = undef,
+) {
   class { '::puppet_agent::package': }
   -> class { '::puppet_agent::config': }
   ~> class { '::puppet_agent::service': }
