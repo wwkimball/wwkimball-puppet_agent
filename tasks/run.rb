@@ -10,9 +10,9 @@ require 'puppet'
 def run(environment, debug, jobid, noop)
   cmd = ['puppet', '--test']
   cmd << "--environment=#{environment}" unless environment.nil?
-  cmd << "--debug" unless debug.nil?
+  cmd << "--debug" unless debug.nil? || !debug
   cmd << "--job-id=#{jobid}" unless jobid.nil?
-  cmd << "--noop" unless noop.nil?
+  cmd << "--noop" unless noop.nil? || !noop
   stdout, stderr, status = Open3.capture3(*cmd) # rubocop:disable Lint/UselessAssignment
   raise Puppet::Error, _("stderr: ' %{stderr}') % { stderr: stderr }") if status != 0
   { status: stdout.strip }

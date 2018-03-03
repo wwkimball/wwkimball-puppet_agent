@@ -1,0 +1,3 @@
+{ "description": "Enables the Puppet agent on this node, permitting it to resume making changes to the local node.  This does not start the Puppet agent daemon; it merely reverses the lock imposed by the puppet_agent::disable task.",
+  "input_method": "stdin"
+}

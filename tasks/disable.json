@@ -1,0 +1,9 @@
+{ "description": "Disables the Puppet agent on this node, supplying an optional message that is presented whenever the Puppet agent later attempts to run while still disabled.  This does not stop the Puppet agent.  It does block the Puppet agent from making any further changes to the local node.",
+  "input_method": "stdin",
+  "parameters": {
+    "message": {
+      "description": "Message to report when the Puppet agent attempts to run on a disabled node.",
+      "type": "Optional[String[1]]"
+    }
+  }
+}

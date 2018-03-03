@@ -1,0 +1,21 @@
+{ "description": "Performs a Puppet manifest run on the present node.",
+  "input_method": "stdin",
+  "parameters": {
+    "environment": {
+      "description": "Name of the Puppet environment to request from the Puppet server, if node-specified environments are supported by your configuration.",
+      "type": "Optional[String[1]]"
+    },
+    "debug": {
+      "description": "Enable additional debug messages in the output.",
+      "type": "Optional[Boolean]"
+    },
+    "jobid": {
+      "description": "Custom Job ID to add to the catalog request and report",
+      "type": "Optional[String[1]]"
+    },
+    "noop": {
+      "description": "Report what might have changed but perform no actual changes.",
+      "type": "Optional[Boolean]"
+    }
+  }
+}
