@@ -19,6 +19,7 @@ class puppet_agent(
   String[3]                      $config_file_path,
   Hash[String[4], Any]           $config_file_path_attributes,
   Pattern[/^-+$/]                $config_hash_key_knockout_prefix,
+  Boolean                        $config_managed,
   String                         $package_ensure,
   String[2]                      $package_name,
   Boolean                        $purge_config_file_path,

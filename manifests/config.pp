@@ -19,19 +19,22 @@ class puppet_agent::config {
       true    => 1,
       default => undef,
     }
-    file { $puppet_agent::config_file_path:
-      ensure       => directory,
-      purge        => $puppet_agent::purge_config_file_path,
-      recurse      => $puppet_agent::purge_config_file_path,
-      recurselimit => $purge_recurse_limit,
-      *            => $puppet_agent::config_file_path_attributes,
-    }
 
-    # Manage puppet.conf
-    file { "${puppet_agent::config_file_path}/puppet.conf":
-      ensure  => file,
-      content => template("${module_name}/config-file.erb"),
-      *       => $puppet_agent::config_file_attributes,;
+    if $puppet_agent::config_managed {
+	    file { $puppet_agent::config_file_path:
+	      ensure       => directory,
+	      purge        => $puppet_agent::purge_config_file_path,
+	      recurse      => $puppet_agent::purge_config_file_path,
+	      recurselimit => $purge_recurse_limit,
+	      *            => $puppet_agent::config_file_path_attributes,
+	    }
+
+	    # Manage puppet.conf
+	    file { "${puppet_agent::config_file_path}/puppet.conf":
+	      ensure  => file,
+	      content => template("${module_name}/config-file.erb"),
+	      *       => $puppet_agent::config_file_attributes,;
+	    }
     }
   }
 }

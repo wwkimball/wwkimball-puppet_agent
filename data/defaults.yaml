@@ -38,6 +38,7 @@ puppet_agent::config_file_path_attributes:
   group: root
   mode: '0755'
 puppet_agent::config_hash_key_knockout_prefix: *knockout_prefix
+puppet_agent::config_managed: true
 puppet_agent::purge_config_file_path: false
 
 # Service defaults

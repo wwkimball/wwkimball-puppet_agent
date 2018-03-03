@@ -8,7 +8,7 @@ if !config.nil? && !config.empty? && config.is_a?(Hash)
   config.each do |section_name, section_config|
     %><%= "[#{section_name}]\n" %><%
     section_config.each do |key, value|
-      if value.type_of?(Array)
+      if value.kind_of?(Array)
         value.each do |more_value|
           %><%= "#{key}[] = #{more_value}\n" %><%
         end
@@ -21,7 +21,7 @@ else
   %>
 #
 # WARNING:
-# The $#{config_var} Hash value is missing, empty, or of an incorrect data
+# The $<%= config_var %> Hash value is missing, empty, or of an incorrect data
 # type in the calling Puppet module.  Ensure that you specify at least one
 # outer-most configuration section for your settings, like:  main.
 #
