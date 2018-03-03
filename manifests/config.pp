@@ -6,7 +6,6 @@
 #
 class puppet_agent::config {
   if 'purged' == $puppet_agent::package_ensure {
-    # Note:  never destroy the $virtual_delivery_dir to avoid destroying mail.
     file { $puppet_agent::config_file_path:
       ensure => absent,
       force  => true,
