@@ -13,7 +13,7 @@ define puppet_agent::defines::cert_copy(
   Optional[Hash[
     String[1],
     Any
-  ]]                   $attrs = undef,
+  ]]                   $attrs = {},
 ) {
   $pki_dir       = "${puppet_agent::cert_copies::pki_base_dir}/${title}"
   $agent_facts   = $facts['puppet_agent']

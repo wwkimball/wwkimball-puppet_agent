@@ -1,6 +1,6 @@
 {
   "name": "wwkimball-puppet_agent",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "William W. Kimball, Jr., MBA, MSIS",
   "summary": "Manages the already-installed OSS Puppet Agent and its resources.",
   "license": "Apache-2.0",
